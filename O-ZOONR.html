@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>موقع متكامل بالأفكار</title>
+  <style>
+    /* إعادة تعيين الأنماط */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header nav ul {
+      list-style: none;
+    }
+    header nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* شريط مغير اللغة */
+    .lang-switcher {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .lang-switcher select {
+      padding: 5px;
+    }
+    section {
+      padding: 20px;
+      margin: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* قسم الدردشة المباشرة */
+    #liveChat {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    #chatBox {
+      position: fixed;
+      bottom: 70px;
+      left: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    #chatBox header {
+      background: #007bff;
+      color: #fff;
+      padding: 10px;
+    }
+    #chatBox .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      height: 200px;
+    }
+    #chatBox input {
+      border: none;
+      padding: 10px;
+      width: calc(100% - 20px);
+      border-top: 1px solid #ccc;
+    }
+    /* أزرار تقييم */
+    .rating {
+      margin-top: 10px;
+    }
+    .rating button {
+      background: #eee;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    /* نموذج تسجيل الدخول للوحة التحكم */
+    #adminPanel {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #adminPanel input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    #adminPanel button {
+      width: 100%;
+      padding: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    /* استجابة التصميم */
+    @media (max-width: 600px) {
+      header nav ul li {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+    /* تنسيق الروابط الاجتماعية */
+    .social-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .social-links a {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- رأس الموقع -->
+  <header>
+    <h1>موقعي المتكامل</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#blog">المدونة</a></li>
+        <li><a href="#gallery">المعرض</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+        <li><a href="#admin">لوحة التحكم</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switcher">
+      <label for="language">اختر اللغة:</label>
+      <select id="language">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- الصفحة الرئيسية -->
+  <section id="home">
+    <h2>الرئيسية</h2>
+    <p>مرحباً بكم في موقعي المتكامل الذي يجمع بين العديد من الميزات لتقديم تجربة مستخدم فريدة.</p>
+  </section>
+
+  <!-- المدونة -->
+  <section id="blog">
+    <h2>المدونة</h2>
+    <article>
+      <h3>عنوان المقال الأول</h3>
+      <p>هذا نص تجريبي للمقال الأول يعرض محتوى مفيد ومعلومات قيمة.</p>
+    </article>
+    <article>
+      <h3>عنوان المقال الثاني</h3>
+      <p>هذا نص تجريبي للمقال الثاني، يمكن تطويره بإضافة المزيد من التفاصيل والصور.</p>
+    </article>
+  </section>
+
+  <!-- المعرض -->
+  <section id="gallery">
+    <h2>المعرض</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <img src="https://via.placeholder.com/150" alt="صورة 1">
+      <img src="https://via.placeholder.com/150" alt="صورة 2">
+      <img src="https://via.placeholder.com/150" alt="صورة 3">
+      <img src="https://via.placeholder.com/150" alt="صورة 4">
+    </div>
+  </section>
+
+  <!-- الخدمات مع نظام التقييم -->
+  <section id="services">
+    <h2>الخدمات</h2>
+    <p>نوفر خدمات تصميم وتطوير مواقع إلكترونية مميزة وسهلة الاستخدام.</p>
+    <div class="rating">
+      <p>قيم الخدمة:</p>
+      <button onclick="rateService(1)">1</button>
+      <button onclick="rateService(2)">2</button>
+      <button onclick="rateService(3)">3</button>
+      <button onclick="rateService(4)">4</button>
+      <button onclick="rateService(5)">5</button>
+      <p id="ratingMessage"></p>
+    </div>
+  </section>
+
+  <!-- نموذج تواصل متعدد الخطوات -->
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <form id="contactForm">
+      <!-- الخطوة 1: البيانات الشخصية -->
+      <div id="step1">
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="button" onclick="nextStep()">التالي</button>
+      </div>
+      <!-- الخطوة 2: بيانات الاتصال -->
+      <div id="step2" style="display: none;">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="button" onclick="prevStep()">السابق</button>
+        <button type="button" onclick="nextStep()">التالي</button>
+      </div>
+      <!-- الخطوة 3: الرسالة -->
+      <div id="step3" style="display: none;">
+        <label for="message">رسالتك:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="button" onclick="prevStep()">السابق</button>
+        <button type="submit">إرسال</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- لوحة التحكم (CMS) تجريبية -->
+  <section id="admin">
+    <h2>لوحة التحكم</h2>
+    <div id="adminPanel">
+      <h3>تسجيل الدخول</h3>
+      <input type="text" id="adminUser" placeholder="اسم المستخدم" required>
+      <input type="password" id="adminPass" placeholder="كلمة المرور" required>
+      <button onclick="adminLogin()">دخول</button>
+      <p id="adminMessage"></p>
+    </div>
+  </section>
+
+  <!-- روابط وسائل التواصل الاجتماعي -->
+  <section id="social">
+    <h2>تابعنا على وسائل التواصل الاجتماعي</h2>
+    <div class="social-links">
+      <a href="#" target="_blank">فيسبوك</a>
+      <a href="#" target="_blank">تويتر</a>
+      <a href="#" target="_blank">إنستجرام</a>
+    </div>
+  </section>
+
+  <!-- زر الدردشة المباشرة -->
+  <div id="liveChat">دردشة</div>
+  <div id="chatBox">
+    <header>
+      <span>دردشة مباشرة</span>
+      <span style="float: left; cursor: pointer;" onclick="toggleChat()">X</span>
+    </header>
+    <div class="chat-messages" id="chatMessages">
+      <p>مرحباً، كيف يمكننا مساعدتك؟</p>
+    </div>
+    <input type="text" id="chatInput" placeholder="اكتب رسالتك..." onkeypress="if(event.key === 'Enter') sendMessage()">
+  </div>
+
+  <!-- تضمين تحليلات جوجل (كمثال) -->
+  <script>
+    // دالة محاكاة لمعدل التقييم
+    function rateService(score) {
+      document.getElementById('ratingMessage').innerText = "شكراً لتقييمك: " + score;
+    }
+
+    // نموذج التواصل متعدد الخطوات
+    let currentStep = 1;
+    function nextStep() {
+      if(currentStep === 1) {
+        // تحقق من صحة الخطوة الأولى
+        if(document.getElementById('name').value.trim() === ""){
+          alert("الرجاء إدخال الاسم");
+          return;
+        }
+      }
+      if(currentStep === 2) {
+        if(document.getElementById('email').value.trim() === ""){
+          alert("الرجاء إدخال البريد الإلكتروني");
+          return;
+        }
+      }
+      document.getElementById('step' + currentStep).style.display = "none";
+      currentStep++;
+      document.getElementById('step' + currentStep).style.display = "block";
+    }
+    function prevStep() {
+      document.getElementById('step' + currentStep).style.display = "none";
+      currentStep--;
+      document.getElementById('step' + currentStep).style.display = "block";
+    }
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert("تم إرسال رسالتك بنجاح!");
+      // إعادة تعيين النموذج وإرجاع الخطوة الأولى
+      this.reset();
+      document.getElementById('step' + currentStep).style.display = "none";
+      currentStep = 1;
+      document.getElementById('step1').style.display = "block";
+    });
+
+    // محاكاة لوحة التحكم
+    function adminLogin() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+      if(user === "admin" && pass === "123") {
+        document.getElementById('adminMessage').innerText = "تم تسجيل الدخول بنجاح!";
+      } else {
+        document.getElementById('adminMessage').innerText = "بيانات الدخول غير صحيحة.";
+      }
+    }
+
+    // الدردشة المباشرة
+    function toggleChat() {
+      const chatBox = document.getElementById('chatBox');
+      chatBox.style.display = (chatBox.style.display === "none" || chatBox.style.display === "") ? "flex" : "none";
+    }
+    document.getElementById('liveChat').addEventListener('click', toggleChat);
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      if(input.value.trim() !== ""){
+        const msgContainer = document.getElementById('chatMessages');
+        msgContainer.innerHTML += "<p><strong>أنت:</strong> " + input.value + "</p>";
+        input.value = "";
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+      }
+    }
+
+    // محاكاة تضمين تحليلات جوجل (غير مفعل فعلياً)
+    /*
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview');
+    */
+  </script>
+</body>
+</html>
+
+  
+ 
